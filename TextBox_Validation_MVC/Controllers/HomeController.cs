@@ -18,7 +18,7 @@ namespace TextBox_Validation_MVC.Controllers
         [HttpPost]
         public ActionResult Index(PersonModel person)
         {
-            return View();
+            return View(); // Examine 
         }
     }
 }

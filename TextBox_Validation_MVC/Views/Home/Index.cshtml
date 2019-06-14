@@ -10,7 +10,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
-
+    <script src="~/Scripts/jquery-3.0.0.js"></script>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <style type="text/css">
         body {
@@ -23,62 +23,68 @@
     </style>
 </head>
 <body>
-    <div class="container-fluid">
-        @using (@Html.BeginForm("Index", "Home", FormMethod.Post))
-        {
-            <h2>Simple data validation</h2>
-            <table>
-                <tr>
+<div class="container-fluid">
+    
+    <div class="alert alert-info alert-dismissible fade show" role="alert" id="topalert">
+        <strong>Data Annotation</strong> and <strong>BootStrap</strong>
+   </div>
 
-                    <td>@Html.Label("First name",
-                            new {@class = "float-right form-control-sm"})</td>
+    @using (@Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <h2>Simple data validation</h2>
+        <table>
+            <tr>
 
-                    <td>@Html.TextBoxFor(pm => pm.FirstName,
-                            new {@class = "form-control-sm"})</td>
+                <td>@Html.Label("First name",
+                        new {@class = "float-right form-control-sm"})</td>
 
-                    <td>@Html.ValidationMessageFor(pm => pm.FirstName,
-                            "",
-                            new {@class = "error"})</td>
-                </tr>
-                <tr>
+                <td>@Html.TextBoxFor(pm => pm.FirstName,
+                        new {@class = "form-control-sm"})</td>
 
-                    <td>@Html.Label("Last name",
-                            new {@class = "float-right form-control-sm"})</td>
+                <td>@Html.ValidationMessageFor(pm => pm.FirstName,
+                        "",
+                        new {@class = "error"})</td>
+            </tr>
+            <tr>
 
-                    <td>@Html.TextBoxFor(pm => pm.LastName,
-                            new {@class = "form-control-sm"})</td>
+                <td>@Html.Label("Last name",
+                        new {@class = "float-right form-control-sm"})</td>
 
-                    <td>@Html.ValidationMessageFor(m => m.LastName,
-                            "",
-                            new {@class = "error"})</td>
-                </tr>
-                <tr>
+                <td>@Html.TextBoxFor(pm => pm.LastName,
+                        new {@class = "form-control-sm"})</td>
 
-                    <td>@Html.Label("Ssn",
-                            new {@class = "float-right form-control-sm"})</td>
+                <td>@Html.ValidationMessageFor(m => m.LastName,
+                        "",
+                        new {@class = "error"})</td>
+            </tr>
+            <tr>
 
-                    <td>@Html.TextBoxFor(pm => pm.Ssn,
-                            new {@class = "form-control-sm"})</td>
+                <td>@Html.Label("Ssn",
+                        new {@class = "float-right form-control-sm"})</td>
 
-                    <td>@Html.ValidationMessageFor(m => m.Ssn,
-                            "", new {@class = "error"})</td>
+                <td>@Html.TextBoxFor(pm => pm.Ssn,
+                        new {@class = "form-control-sm"})</td>
 
-                </tr>
+                <td>@Html.ValidationMessageFor(m => m.Ssn,
+                        "", new {@class = "error"})</td>
 
-                <tr>
-                    <td></td>
-                    <td><input type="submit" class="btn btn-primary" value="Submit" /></td>
-                    <td></td>
-                </tr>
-            </table>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input type="submit" class="btn btn-primary" value="Submit"/></td>
+                <td></td>
+            </tr>
+        </table>
 
 
             @*@Html.Editor("FirstName")
             <br />
             @Html.ValidationMessage("FirstName", "", new { @class = "error" })<br />
             <input type="submit" value="Submit" />*@
-        }
-    </div>
+    }
+</div>
+
 </body>
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/jqueryval")
