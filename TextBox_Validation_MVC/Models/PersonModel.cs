@@ -22,6 +22,7 @@ namespace TextBox_Validation_MVC.Models
         [DataType(DataType.Text)]
         [Required(ErrorMessage = "{0} is required.")]
         [SocialSecurity(ErrorMessage = "Bad SSN")]
+        [InputMask("999-99-9999")]
         //[RegularExpression(@"^([0-9]{3})(\D*)([0-9]{2})(\D*)([0-9]{4})$", ErrorMessage = "Invalid Social Security Number")]
         public string Ssn { get; set; }
     }
