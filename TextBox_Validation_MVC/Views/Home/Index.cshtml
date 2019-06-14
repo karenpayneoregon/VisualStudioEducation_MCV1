@@ -1,0 +1,59 @@
+﻿@model TextBox_Validation_MVC.Models.PersonModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    @using (@Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <h2>Simple data validation</h2>
+        <table>
+            <tr>
+                <td>@Html.Label("First name")</td>
+                <td>@Html.TextBoxFor(pm => pm.FirstName)</td>
+                <td>@Html.ValidationMessageFor(pm => pm.FirstName, "", new { @class = "error" })</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Last name")</td>
+                <td>@Html.TextBoxFor(pm => pm.LastName)</td>
+                <td>@Html.ValidationMessageFor(m => m.LastName, "", new { @class = "error" })</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Ssn")</td>
+                <td>@Html.TextBoxFor(pm => pm.Ssn)</td>
+                <td>@Html.ValidationMessageFor(m => m.Ssn, "", new { @class = "error" })</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit" /></td>
+                <td></td>
+            </tr>
+        </table>
+
+    
+        @Html.Editor("FirstName") <br />
+        @Html.ValidationMessage("FirstName", "", new { @class = "error" })<br />
+        <input type="submit" value="Submit" />
+    }
+</body>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+</html>
